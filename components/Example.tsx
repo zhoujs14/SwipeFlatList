@@ -5,6 +5,7 @@ import { SwipeFlatList } from './SwipeFlatList';
 import { SwipeRow } from './SwipeRow';
 
 type Item = {
+  id: number
   icon: string;
   text: string;
 };
@@ -22,6 +23,7 @@ export default class Example extends Component<{}, State> {
     for (let i = 0; i < 30; i++) {
       mockList.push(
         {
+          id: i,
           icon: 'https://s1.hdslb.com/bfs/static/jinkela/popular/assets/icon_rank.png',
           text: `我是第${i}行`,
         }
@@ -33,13 +35,19 @@ export default class Example extends Component<{}, State> {
     };
   }
 
+  deleteDataFromList = (rowId: number) => {
+    this.setState({
+      list: this.state.list.filter(item => item.id !== rowId)
+    })
+  }
+
   onRowPress = () => {
     console.log('you pressed row');
   };
 
   onHiddenAreaPree = (item: Item, clickRow: SwipeRow | undefined) => {
     console.log('you click hidden area of item:', item.text)
-    clickRow?.deleteRow(() => "callbackFn: the row has been deleted")
+    clickRow?.deleteRow(() => this.deleteDataFromList(item.id)) //在删除动画回调中再删除数据，防止动画未结束就rerender
   }
 
   //滑动行可见部分
