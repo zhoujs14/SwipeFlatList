@@ -8,12 +8,13 @@
 
 之后尝试寻找一些第三方库,一个比较好用的是`react-native-swipe-list-view`,可以实现组件左右滑动、控制滑动的距离、删除动画以及预置的动画演示，符合要求的话建议用这个
 [react-native-swipe-list-view  GitHub地址](https://github.com/jemise111/react-native-swipe-list-view)
+
 ![react-native-swipe-list-view演示](https://camo.githubusercontent.com/7c512e80fe0c234d4fc1f227c1acd1d6c6b047fbae7ee21d7581597213c3cc60/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f57726d72766d774d6e76766d7a4e335a70582f67697068792e676966)
 
 但发现这种滑动实际上是两个组件,一个组件放在下面固定,上面的组件滑动,把下面隐藏的内容露出了,并且不能控制最大滑动的距离,只能禁用一侧的滑动,如果滑动超过了下面隐藏组件的范围,就会露出空白,虽然手势释放会回到设置的openValue,但这两点不符合UI的要求,只能开始研究自己实现.
 
 ## 实现效果
-![侧滑删除列表演示]($resource/%E4%BE%A7%E6%BB%91%E5%88%A0%E9%99%A4%E5%88%97%E8%A1%A8%E6%BC%94%E7%A4%BA.gif)
+![侧滑删除列表演示](侧滑删除列表演示.gif)
 
 ## 代码
 [GitHub地址](https://github.com/zhoujs14/SwipeFlatList)
